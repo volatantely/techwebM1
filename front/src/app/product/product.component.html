@@ -1,0 +1,37 @@
+<div class="product-container p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-lg space-y-6">
+  <div class="image-gallery flex flex-col items-center">
+    <img [src]="currentProduct.image" alt="{{ currentProduct.name }}" class="w-full h-auto object-cover rounded-lg" />
+    <div class="carousel-dots mt-4 flex justify-center gap-2">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+  <div class="info">
+    <h2 class="text-2xl font-semibold text-center text-indigo-600">{{ currentProduct.name }}</h2>
+    <p class="desc text-gray-600 mt-2 text-center">{{ currentProduct.desc }}</p>
+    <p class="price text-xl font-bold text-center text-indigo-700 mt-4">\${{ currentProduct.price }}</p>   
+    <div class="qty mt-6 text-center">
+      <label class="text-lg">Quantity</label>
+      <div class="counter flex justify-center gap-4 mt-2">
+        <button (click)="decrement()" class="bg-gray-200 p-2 rounded-full hover:bg-gray-300">−</button>
+        <span class="text-xl">{{ quantity }}</span>
+        <button (click)="increment()" class="bg-gray-200 p-2 rounded-full hover:bg-gray-300">+</button>
+      </div>
+    </div>
+    <div class="mt-6 text-center">
+      <button
+        class="add-cart bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition"
+      >
+        Add to Bag 
+      </button>
+    </div>
+  </div>
+  <div class="description mt-8">
+    <h3 class="text-2xl font-semibold text-indigo-600">Description</h3>
+    <p class="text-gray-600 mt-2">{{ currentProduct.description }}</p>
+    <ul class="mt-4 space-y-2">
+      <li *ngFor="let item of currentProduct.details" class="text-gray-500">- {{ item }}</li>
+    </ul>
+  </div>
+</div>

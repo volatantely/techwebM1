@@ -1,0 +1,25 @@
+<section class="promo">
+  <div class="promo-text">
+    <h2><span>25% OFF</span></h2>
+    <h1>Summer Sale</h1>
+    <p>Discover our summer styles with discount</p>
+    <button (click)="goToProduct(3)">Shop Now →</button>
+  </div>
+  <img src="assets/images/Home.png" alt="Image" />
+</section>
+
+
+<div class="product-list">
+  <div *ngFor="let product of displayedProducts" class="product-card" (click)="goToProduct(product.id)">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.desc }}</p>
+    <strong>{{ product.price }} €</strong>
+  </div>
+</div>
+
+
+<div class="pagination-controls">
+  <button (click)="prevPage()" [disabled]="currentPage === 0"> Précédent</button>
+  <button (click)="nextPage()" [disabled]="(currentPage + 1) * productsPerPage >= products.length">Suivant</button>
+</div>
